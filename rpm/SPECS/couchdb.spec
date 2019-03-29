@@ -18,7 +18,7 @@ Summary:       RESTful document oriented database
 License:       Apache License v2.0
 Name:          %{name}
 Version:       %{_version}
-Release:       1%{?dist}
+Release:       1_fips%{?dist}
 Source:        https://www.apache.org/dist/couchdb/source/${version}/apache-couchdb-%{version}.tar.gz
 Source1:       %{name}.service
 Source2:       %{name}.init
@@ -98,7 +98,7 @@ languages and environments.
 %define __os_install_post %{nil}
 
 %build
-./configure -c
+./configure -c --erlang-md5
 %{__make} release
 
 %clean
